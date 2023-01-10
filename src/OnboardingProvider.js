@@ -1,10 +1,14 @@
 import React, { useState, createContext } from "react";
 import OnboardingContainer from "./components/OnboardingContainer";
-import { OnboardingData } from "./OnboardingData";
 
 export const OnboardContext = createContext();
 
-const OnboardingProvider = ({ children, showOnboarding, finishOnboarding }) => {
+const OnboardingProvider = ({
+  children,
+  showOnboarding,
+  finishOnboarding,
+  onboardingData = [],
+}) => {
   const [currentStep, setCurrentStep] = useState(0);
 
   return (
@@ -12,7 +16,7 @@ const OnboardingProvider = ({ children, showOnboarding, finishOnboarding }) => {
       {children}
       <OnboardingContainer
         showOnboarding={showOnboarding}
-        stepData={OnboardingData}
+        stepData={onboardingData}
         finishOnboarding={finishOnboarding}
       />
     </OnboardContext.Provider>

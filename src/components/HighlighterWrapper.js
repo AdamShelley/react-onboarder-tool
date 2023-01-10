@@ -4,7 +4,7 @@ import { useShowHighlight } from "../hooks/useShowHighlight";
 
 const HighlightedComponent = styled.div`
   width: ${(props) => (props.width ? props.width : "")};
-  border: 2px solid var(--text-color) !important;
+  border: 2px solid #eeeeee !important;
   /* box-shadow: 2px 3px 2px rgba(255, 255, 255, 0.6); */
   user-select: none;
   pointer-events: none;

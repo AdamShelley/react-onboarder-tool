@@ -24,10 +24,10 @@ const OnboarderContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-evenly;
-    border: 3px solid var(--text-color);
+    border: 3px solid #eeeeee;
     border-radius: 5px;
     padding: 2rem;
-    background-color: var(--background);
+    background-color: #15161b;
     width: 30%;
     height: 40%;
 
@@ -57,7 +57,7 @@ const OnboarderContainer = styled.div`
       width: 75%;
       height: 25%;
       padding: 2rem;
-      border: 1px solid var(--text-color);
+      border: 1px solid #eeeeee;
       justify-content: flex-start;
 
       h2 {
