@@ -1,18 +1,18 @@
-# react-onboarding-tool
+# react-onboarder-tool
 
 ## Installation
 
 Install with npm:
 
-`npm install react-onboarding-tool`
+`npm install react-onboarder-tool`
 
 Add to the highest level possible (encompassing all elements you want to be highlighted):
 
-`import {OnboardingProvider} from 'react-onboarding-tool'`
+`import {OnboardingProvider} from 'react-onboarder-tool'`
 
 And in every file you want to have a highlighted element also include:
 
-`import {HighlighterWrapper} from 'react-onboarding-tool'`
+`import {HighlighterWrapper} from 'react-onboarder-tool'`
 
 
 These two components will work together to create the onboarding experience. 
@@ -25,7 +25,7 @@ The first step is to wrap the entire app/or the specific part you want to includ
 ```
 app.js
 
-import {OnboardingProvider} from 'react-onboarding-tool'
+import {OnboardingProvider} from 'react-onboarder-tool'
 
 <OnboardingProvider showOnboarding={true} onboardingData={dataFile} finishOnboarding={afterOnboarding}>
     <header className="App-header">
@@ -40,7 +40,7 @@ You will then wrap the elements that you wish to highlighted during the onboardi
 ```
 app.js
 
-import {OnboardingProvider, HighlighterWrapper} from 'react-onboarding-tool'
+import {OnboardingProvider, HighlighterWrapper} from 'react-onboarder-tool'
 
 <OnboardingProvider showOnboarding={true} onboardingData={dataFile} finishOnboarding={afterOnboarding}>
     <header className="App-header">
