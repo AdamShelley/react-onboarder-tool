@@ -19,25 +19,27 @@ const OnboarderContainer = styled.div`
 
   section {
     position: absolute;
-    top: 30%;
+    top: ${(props) => (props.top ? props.top : "30%")};
+    left: ${(props) => (props.left ? props.left : "inherit")};
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: space-between;
     border: ${(props) => (props.border ? props.border : "3px solid #eeeeee")};
     border-radius: ${(props) =>
       props.borderRadius ? props.borderRadius : "5px"};
-    padding: 2rem;
+    padding: ${(props) => (props.padding ? props.padding : "2rem")};
     background-color: #15161b;
-    width: 30%;
-    height: 40%;
+    width: ${(props) => (props.width ? props.width : "30%")};
+    height: ${(props) => (props.height ? props.height : "40%")};
     box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.1);
     z-index: 60;
 
     h2 {
       font-size: ${(props) =>
         props.titleFontSize ? props.titleFontSize : "2rem"};
-      padding: 1rem 0;
+      padding: 0.5rem 0;
+      margin: 0;
     }
 
     p {
@@ -106,12 +108,22 @@ const OnboardingContainer = ({
     finishOnboarding();
   };
 
+  const exitOnboarding = () => {
+    setOpenModal(false);
+  };
+
   return (
     <>
       {openModal && (
         <>
-          <OnboarderContainer ref={containerRef} {...options?.modal}>
+          <OnboarderContainer
+            ref={containerRef}
+            {...options?.modal}
+            top={stepData[stepContext]?.position?.top}
+            left={stepData[stepContext]?.position?.left}
+          >
             <section>
+              {}
               <h2>{stepData[stepContext]?.title}</h2>
               <p>{stepData[stepContext]?.description}</p>
 
