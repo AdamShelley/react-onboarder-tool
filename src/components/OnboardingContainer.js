@@ -6,16 +6,16 @@ import OnboardOverlay from "./OnboardOverlay";
 import Button from "../styles/Button";
 
 const OnboarderContainer = styled.div`
-  /* position: fixed; */
-  /* inset: 0; */
   display: flex;
   flex-direction: column;
   align-items: center; // Can be altered as an option
   justify-content: center; // Can be an option later
   transition: all 0.3s ease-in-out;
   overflow: hidden;
-
+  color: ${(props) => (props.color ? props.color : "#eeeeee")};
   z-index: 60;
+  font-family: ${(props) =>
+    props.fontFamily ? props.fontFamily : "helvetica"};
 
   section {
     position: absolute;
@@ -24,23 +24,26 @@ const OnboarderContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-evenly;
-    border: 3px solid #eeeeee;
-    border-radius: 5px;
+    border: ${(props) => (props.border ? props.border : "3px solid #eeeeee")};
+    border-radius: ${(props) =>
+      props.borderRadius ? props.borderRadius : "5px"};
     padding: 2rem;
     background-color: #15161b;
     width: 30%;
     height: 40%;
-
     box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.1);
+    z-index: 60;
 
     h2 {
-      font-size: 2rem;
+      font-size: ${(props) =>
+        props.titleFontSize ? props.titleFontSize : "2rem"};
       padding: 1rem 0;
     }
 
     p {
-      font-size: 1.5rem;
-      font-weight: 500;
+      font-size: ${(props) =>
+        props.descriptionFontSize ? props.descriptionFontSize : "2rem"};
+      font-weight: ${(props) => (props.fontWeight ? props.fontWeight : 500)};
       line-height: 1.8;
     }
 
@@ -82,6 +85,7 @@ const OnboardingContainer = ({
   stepData,
   showOnboarding,
   finishOnboarding,
+  options,
 }) => {
   const { containerRef } = useOnboarderContainer();
   const [openModal, setOpenModal] = useState(showOnboarding);
@@ -106,24 +110,34 @@ const OnboardingContainer = ({
     <>
       {openModal && (
         <>
-          <OnboarderContainer ref={containerRef}>
+          <OnboarderContainer ref={containerRef} {...options?.modal}>
             <section>
               <h2>{stepData[stepContext]?.title}</h2>
               <p>{stepData[stepContext]?.description}</p>
 
               <div>
                 {stepContext > 0 && (
-                  <Button minWidth="50%" padding="1rem" onClick={previousStep}>
+                  <Button
+                    minWidth="50%"
+                    padding="1rem"
+                    onClick={previousStep}
+                    {...options?.button}
+                  >
                     Previous step
                   </Button>
                 )}
-
                 {stepData.length - 1 !== stepContext ? (
-                  <Button padding="1rem" minWidth="50%" onClick={nextStep}>
+                  <Button
+                    {...options?.button}
+                    padding="1rem"
+                    minWidth="50%"
+                    onClick={nextStep}
+                  >
                     Next step
                   </Button>
                 ) : (
                   <Button
+                    {...options?.button}
                     minWidth="50%"
                     padding="1rem"
                     onClick={finishOnboardingHandler}
@@ -134,7 +148,7 @@ const OnboardingContainer = ({
               </div>
             </section>
           </OnboarderContainer>
-          <OnboardOverlay />
+          <OnboardOverlay options={options?.overlay} />
         </>
       )}
     </>

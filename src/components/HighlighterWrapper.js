@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { useShowHighlight } from "../hooks/useShowHighlight";
 
+const highlighterOptions = {
+  border: " 1px solid #eeeeeee",
+};
+
 const HighlightedComponent = styled.div`
   width: ${(props) => (props.width ? props.width : "")};
   border: 2px solid #eeeeee !important;
@@ -11,7 +15,7 @@ const HighlightedComponent = styled.div`
   z-index: 55;
 `;
 
-const HighlighterWrapper = ({ children, step, width }) => {
+const HighlighterWrapper = ({ children, step, width = "100%", options }) => {
   const { highlightRef, currentStep } = useShowHighlight();
 
   return (
