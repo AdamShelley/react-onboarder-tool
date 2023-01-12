@@ -1,5 +1,12 @@
 # react-onboarder-tool
 
+This is a component for React that will provide a tutorial for users when accessing your site.
+
+It is composed of two parts: 
+    - A guide modal, that steps the users through the onboarding process
+    - A highlighting Wrapper that will highlight the element of your website at the correct step.
+
+
 ## Installation
 
 Install with npm:

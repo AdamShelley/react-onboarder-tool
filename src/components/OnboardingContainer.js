@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { useOnboarderContainer } from "../hooks/useOnboarderContainer";
-import { OnboardContext } from "../OnboardingProvider";
+import { OnboardContext } from "./OnboardingProvider";
 import OnboardOverlay from "./OnboardOverlay";
 import Button from "../styles/Button";
 

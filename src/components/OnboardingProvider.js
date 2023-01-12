@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import OnboardingContainer from "./components/OnboardingContainer";
+import OnboardingContainer from "./OnboardingContainer";
 
 export const OnboardContext = createContext();
 

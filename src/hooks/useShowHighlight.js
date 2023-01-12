@@ -1,5 +1,5 @@
 import { useRef, useContext } from "react";
-import { OnboardContext } from "../OnboardingProvider";
+import { OnboardContext } from "../components/OnboardingProvider";
 
 export function useShowHighlight() {
   const highlightRef = useRef(null);

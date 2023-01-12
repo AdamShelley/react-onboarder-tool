@@ -7,7 +7,9 @@
 
 # testing
 /coverage
+/archive
 Modifications.md
+TODO.md
 
 # production
 /build
