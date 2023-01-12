@@ -17,7 +17,7 @@ And in every file you want to have a highlighted element also include:
 
 These two components will work together to create the onboarding experience. 
 
-
+***
 ## Usage 
 
 The first step is to wrap the entire app/or the specific part you want to include the onboarding experience.
@@ -57,7 +57,7 @@ import {OnboardingProvider, HighlighterWrapper} from 'react-onboarder-tool'
 
 There are 3 main props to share with the provider, those being the boolean check to load the onboarding module, the data for each step, and the function to run when the onboarding has finished. 
 
-### Show Onboarding - ```showOnboarding (Boolean)```
+### Show Onboarding - `showOnboarding (Boolean)`
 
 This is the initial check to see if the module should run, it will only run with true.
 
@@ -70,9 +70,7 @@ It is shared with the provider as in this example:
 ```
 
 
-
-
-### Data entry - ```onboardingData (Array)```
+### Data entry - `onboardingData (Array)`
 
 Data is added through the prop: `onboardingData` on the `OnboardingProvider` component. 
 
@@ -102,7 +100,7 @@ This is then added to the component:
 
 If you wish to leave title and/or description empty, provide an empty string ```""```
 
-### Complete Onboarding - ```finishOnboarding (Function)```
+### Complete Onboarding - `finishOnboarding (Function)`
 This is an optional function that will run after the onboarding has completed, perhaps to update your backend that the user has completed the onboarding or to reroute to a different page.
 
 This is provided to the component in the same way as before:
@@ -122,8 +120,100 @@ This is required to order the steps correctly, the number you provide here will 
 ### Width - (CSS)
 This can be used to tweak the the width of the box around the item you are highlighting. The default is `'100%'`
 
+***
 ## Styling 
 
+### Onboarding Positioning
+The position of the Modal can be changed each step if required, this is modified in the data file you provided with the step data.
+
+``` 
+const onboardingData = [
+    {
+        step: 0,
+        title: 'This is a title.',
+        description: 'This is a description.',
+
+        <!-- TOP and LEFT can be modified to change location -->
+        top: '40%',
+        left: '30%'
+    },
+    {
+        step: 1,
+        ...etc
+    } 
+]
+```
+
+if omitted the modal will be placed near the middle of the page.
+
+
 ### Onboarding Content
+There is an options prop available on the OnboarderProvider in which basic CSS can be modified.
+
+`<OnboarderProvider options={YOUR_OBJECT}>`
+
+```
+const YOUR_OBJECT = {
+    overlay: {
+        backgroundColor: 'black',
+        opacity: 0.3
+    },
+    modal: {
+        fontFamily: "Helvetica", 
+        fontWeight: "600", 
+        titleFontSize: "2rem", 
+        descriptionFontSize: "1rem", 
+        border: "1px solid #eeeeee",
+        backgroundColor: "#15161b",
+        borderRadius: "2px", 
+        padding: "2rem",
+        color: "#eee", 
+        width: "25%",
+        height: "25%",
+    }
+}
+```
 
 ### Buttons
+
+Using the same object as above the button can be modified with the following properties:
+
+```
+const YOUR_OBJECT = {
+    overlay: {
+        ...overlay styles
+    },
+    modal: {
+        ...modal styles
+    },
+    button: {
+        fontFamily: "Helvetica",
+        fontWeight: "600",
+        fontSize: "1rem", 
+        backgroundColor: "#eee", 
+        color: "#15161b", 
+        border: "2px solid #eee", 
+        borderRadius: "2px",
+        hoverBackgroundColor: "#15161b",
+        hoverColor: "#eeeeee",
+        hoverBorder: "1px solid #eeeeee",
+        hoverTransition: "all .5s ease-in-out",
+  }
+}
+```
+
+### Highlighter Wrapper
+
+Using the options prop on the HighlighterWrapper you can do the same to the highlighted items.
+
+`<HighlightWrapper options={highlightOptions}>`
+
+```
+const highlightOptions = {
+  border: "1px solid darkgrey",
+  borderRadius: "2px",
+  backgroundColor: "grey",
+  color: "#eee",
+  padding: "1rem",
+};
+```

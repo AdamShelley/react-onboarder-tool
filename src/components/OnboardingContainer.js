@@ -17,6 +17,8 @@ const OnboarderContainer = styled.div`
   font-family: ${(props) =>
     props.fontFamily ? props.fontFamily : "helvetica"};
 
+  overflow: hidden;
+
   section {
     position: absolute;
     top: ${(props) => (props.top ? props.top : "30%")};
@@ -25,28 +27,33 @@ const OnboarderContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    border: ${(props) => (props.border ? props.border : "3px solid #eeeeee")};
+    border: ${(props) => (props.border ? props.border : "1px solid #eeeeee")};
     border-radius: ${(props) =>
-      props.borderRadius ? props.borderRadius : "5px"};
+      props.borderRadius ? props.borderRadius : "2px"};
     padding: ${(props) => (props.padding ? props.padding : "2rem")};
-    background-color: #15161b;
-    width: ${(props) => (props.width ? props.width : "30%")};
-    height: ${(props) => (props.height ? props.height : "40%")};
+    background-color: ${(props) =>
+      props.backgroundColor ? props.backgroundColor : "#15161b"};
+    width: ${(props) => (props.width ? props.width : "25%")};
+    height: ${(props) => (props.height ? props.height : "")};
     box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.1);
     z-index: 60;
+    overflow: hidden;
+    box-shadow: ${(props) => (props.boxShadow ? props.boxShadow : "")};
 
     h2 {
       font-size: ${(props) =>
         props.titleFontSize ? props.titleFontSize : "2rem"};
       padding: 0.5rem 0;
       margin: 0;
+      text-align: left;
     }
 
     p {
       font-size: ${(props) =>
-        props.descriptionFontSize ? props.descriptionFontSize : "2rem"};
-      font-weight: ${(props) => (props.fontWeight ? props.fontWeight : 500)};
+        props.descriptionFontSize ? props.descriptionFontSize : "1rem"};
+      font-weight: ${(props) => (props.fontWeight ? props.fontWeight : 600)};
       line-height: 1.8;
+      text-align: left;
     }
 
     div {
@@ -59,10 +66,10 @@ const OnboarderContainer = styled.div`
 
   @media screen and (max-width: 800px) {
     section {
-      width: 75%;
-      height: 25%;
+      width: ${(props) => (props.width ? props.width : "50%")};
+      height: ${(props) => (props.height ? props.height : "")};
       padding: 2rem;
-      border: 1px solid #eeeeee;
+      border: ${(props) => (props.border ? props.border : "1px solid #eeeeee")};
       justify-content: flex-start;
 
       h2 {
