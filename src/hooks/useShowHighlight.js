@@ -4,7 +4,7 @@ import { OnboardContext } from "../components/OnboardingProvider";
 export function useShowHighlight() {
   const highlightRef = useRef(null);
 
-  const [currentStep, setNextStep] = useContext(OnboardContext);
+  const [currentStep] = useContext(OnboardContext);
 
   return {
     highlightRef,

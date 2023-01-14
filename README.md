@@ -3,8 +3,9 @@
 This is a component for React that will provide a tutorial for users when accessing your site.
 
 It is composed of two parts: 
-    - A guide modal, that steps the users through the onboarding process
-    - A highlighting Wrapper that will highlight the element of your website at the correct step.
+- A guide modal, that steps the users through the onboarding process
+- A highlighting Wrapper that will highlight the element of your website at the correct step.
+
 
 
 ## Installation
@@ -34,11 +35,15 @@ app.js
 
 import {OnboardingProvider} from 'react-onboarder-tool'
 
-<OnboardingProvider showOnboarding={true} onboardingData={dataFile} finishOnboarding={afterOnboarding}>
-    <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Edit <code>src/App.js</code> and save to reload.</p>
-       
+<OnboardingProvider 
+    showOnboarding={true} 
+    onboardingData={dataFile} 
+    finishOnboarding={afterOnboarding}
+>
+
+   <!-- YOUR CODE HERE -->
+    
+
 </OnboardingProvider>
 ```
 
@@ -49,12 +54,14 @@ app.js
 
 import {OnboardingProvider, HighlighterWrapper} from 'react-onboarder-tool'
 
-<OnboardingProvider showOnboarding={true} onboardingData={dataFile} finishOnboarding={afterOnboarding}>
-    <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <HighlightWrapper step={1} width={"50%"}>
-            <p>Edit <code>src/App.js</code> and save to reload.</p>
-        </HighlightWrapper>
+<OnboardingProvider 
+    showOnboarding={true} 
+    onboardingData={dataFile} 
+    finishOnboarding={afterOnboarding}
+>
+    <HighlightWrapper step={1} width={"50%"}>
+        <p>This element will be highlighted</p>
+    </HighlightWrapper>
        
 </OnboardingProvider>
 ```

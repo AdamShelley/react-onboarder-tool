@@ -40,6 +40,19 @@ const OnboarderContainer = styled.div`
     overflow: hidden;
     box-shadow: ${(props) => (props.boxShadow ? props.boxShadow : "")};
 
+    span {
+      button {
+        border: none;
+        color: #eee;
+        background-color: transparent;
+        font-weight: 900;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+        padding: 0.2rem 0;
+        margin: 0.5rem 0;
+      }
+    }
+
     h2 {
       font-size: ${(props) =>
         props.titleFontSize ? props.titleFontSize : "2rem"};
@@ -95,6 +108,7 @@ const OnboardingContainer = ({
   showOnboarding,
   finishOnboarding,
   options,
+  earlyExitCallback,
 }) => {
   const { containerRef } = useOnboarderContainer();
   const [openModal, setOpenModal] = useState(showOnboarding);
@@ -117,6 +131,7 @@ const OnboardingContainer = ({
 
   const exitOnboarding = () => {
     setOpenModal(false);
+    earlyExitCallback();
   };
 
   return (
@@ -130,38 +145,33 @@ const OnboardingContainer = ({
             left={stepData[stepContext]?.position?.left}
           >
             <section>
-              {}
+              {options.showEarlyExit && (
+                <span>
+                  <button onClick={exitOnboarding}>
+                    {options?.earlyExitText || "Exit Tutorial"}
+                  </button>
+                </span>
+              )}
+
               <h2>{stepData[stepContext]?.title}</h2>
               <p>{stepData[stepContext]?.description}</p>
 
               <div>
                 {stepContext > 0 && (
-                  <Button
-                    minWidth="50%"
-                    padding="1rem"
-                    onClick={previousStep}
-                    {...options?.button}
-                  >
-                    Previous step
+                  <Button {...options?.button} onClick={previousStep}>
+                    {options?.button?.previousButtonText || "Previous"}
                   </Button>
                 )}
                 {stepData.length - 1 !== stepContext ? (
-                  <Button
-                    {...options?.button}
-                    padding="1rem"
-                    minWidth="50%"
-                    onClick={nextStep}
-                  >
-                    Next step
+                  <Button {...options?.button} onClick={nextStep}>
+                    {options?.button?.nextButtonText || "Next"}
                   </Button>
                 ) : (
                   <Button
                     {...options?.button}
-                    minWidth="50%"
-                    padding="1rem"
                     onClick={finishOnboardingHandler}
                   >
-                    Finish
+                    {options?.button?.FinishButtonText || "Finish"}
                   </Button>
                 )}
               </div>

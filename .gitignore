@@ -9,7 +9,6 @@
 /coverage
 /archive
 Modifications.md
-TODO.md
 
 # production
 /build
@@ -25,3 +24,5 @@ TODO.md
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+Todo.md
