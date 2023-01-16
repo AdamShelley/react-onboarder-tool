@@ -124,12 +124,13 @@ const OnboardingContainer = ({
   };
 
   const finishOnboardingHandler = () => {
-    setOpenModal(false);
     setNextStep(0);
+    setOpenModal(false);
     finishOnboarding();
   };
 
   const exitOnboarding = () => {
+    setNextStep(0);
     setOpenModal(false);
     earlyExitCallback();
   };
