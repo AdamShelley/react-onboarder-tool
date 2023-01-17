@@ -8,8 +8,8 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${(props) =>
-    props.backgroundColor ? props.backgroundColor : "rgba(0, 0, 0, 0.6)"};
-  opacity: ${(props) => (props.opacity ? props.opacity : 0.5)};
+    props.backgroundColor ? props.backgroundColor : "#1a1a1a"};
+  opacity: ${(props) => (props.opacity ? props.opacity : 0.9)};
   z-index: 50;
 `;
 

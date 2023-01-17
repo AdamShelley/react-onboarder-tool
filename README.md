@@ -6,6 +6,7 @@ It is composed of two parts:
 - A guide modal, that steps the users through the onboarding process
 - A highlighting Wrapper that will highlight the element of your website at the correct step.
 
+You can see a live demo of the tool here: [react-onboarder-tool demonstration](https://onboarder-demonstration.web.app/)
 
 
 ## Installation

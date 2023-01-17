@@ -16,7 +16,6 @@ const OnboarderContainer = styled.div`
   z-index: 60;
   font-family: ${(props) =>
     props.fontFamily ? props.fontFamily : "helvetica"};
-
   overflow: hidden;
 
   section {
@@ -27,18 +26,18 @@ const OnboarderContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    border: ${(props) => (props.border ? props.border : "1px solid #eeeeee")};
+    border: ${(props) => (props.border ? props.border : "none")};
     border-radius: ${(props) =>
-      props.borderRadius ? props.borderRadius : "2px"};
+      props.borderRadius ? props.borderRadius : "10px"};
     padding: ${(props) => (props.padding ? props.padding : "2rem")};
     background-color: ${(props) =>
-      props.backgroundColor ? props.backgroundColor : "#15161b"};
+      props.backgroundColor ? props.backgroundColor : "#1a1a1a"};
     width: ${(props) => (props.width ? props.width : "25%")};
     height: ${(props) => (props.height ? props.height : "")};
-    box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.1);
     z-index: 60;
     overflow: hidden;
-    box-shadow: ${(props) => (props.boxShadow ? props.boxShadow : "")};
+    box-shadow: ${(props) =>
+      props.boxShadow ? props.boxShadow : "0 10px 40px #000"};
 
     span {
       button {
@@ -64,7 +63,7 @@ const OnboarderContainer = styled.div`
     p {
       font-size: ${(props) =>
         props.descriptionFontSize ? props.descriptionFontSize : "1rem"};
-      font-weight: ${(props) => (props.fontWeight ? props.fontWeight : 600)};
+      font-weight: ${(props) => (props.fontWeight ? props.fontWeight : 400)};
       line-height: 1.8;
       text-align: left;
     }
@@ -77,7 +76,7 @@ const OnboarderContainer = styled.div`
     }
   }
 
-  @media screen and (max-width: 800px) {
+  /* @media screen and (max-width: 800px) {
     section {
       width: ${(props) => (props.width ? props.width : "50%")};
       height: ${(props) => (props.height ? props.height : "")};
@@ -100,7 +99,7 @@ const OnboarderContainer = styled.div`
         padding: 0.5rem;
       }
     }
-  }
+  } */
 `;
 
 const OnboardingContainer = ({

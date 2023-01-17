@@ -5,15 +5,15 @@ import { useShowHighlight } from "../hooks/useShowHighlight";
 const HighlightedComponent = styled.div`
   width: ${(props) => (props.width ? props.width : "100%")};
   border: ${(props) =>
-    props.border ? props.border : "2px solid #eeeeee !important"};
+    props.border ? props.border : "2px solid darkgrey !important"};
   border-radius: ${(props) =>
     props.borderRadius ? props.borderRadius : "2px"};
   background-color: ${(props) =>
-    props.backgroundColor ? props.backgroundColor : "inherit"};
-  color: ${(props) => (props.color ? props.color : "inherit")};
+    props.backgroundColor ? props.backgroundColor : "rgba(0,0,0,0.9"};
+  color: ${(props) => (props.color ? props.color : "#eee")};
   user-select: none;
   pointer-events: none;
-  padding: ${(props) => (props.padding ? props.padding : "inherit")};
+  padding: ${(props) => (props.padding ? props.padding : "1rem")};
   z-index: 55;
 `;
 
