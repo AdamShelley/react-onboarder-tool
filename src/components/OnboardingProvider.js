@@ -10,6 +10,7 @@ const OnboardingProvider = ({
   onboardingData = [],
   options,
   earlyExitCallback,
+  mobileOptions,
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -19,9 +20,10 @@ const OnboardingProvider = ({
       <OnboardingContainer
         showOnboarding={showOnboarding}
         stepData={onboardingData}
+        earlyExitCallback={earlyExitCallback}
         finishOnboarding={finishOnboarding}
         options={options}
-        earlyExitCallback={earlyExitCallback}
+        mobileOptions={mobileOptions}
       />
     </OnboardContext.Provider>
   );

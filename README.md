@@ -1,5 +1,6 @@
 # react-onboarder-tool
 
+
 This is a component for React that will provide a tutorial for users when accessing your site.
 
 It is composed of two parts: 
@@ -232,3 +233,35 @@ const highlightOptions = {
   padding: "1rem",
 };
 ```
+
+## Mobile Styling
+You can change the CSS of mobile styles by adding the `mobileOptions` prop to the `<OnboarderProvider>`
+
+`<OnboarderProvider mobileOptions={yourMobileOptions}`
+
+
+
+
+The positioning of the modal can also be positioned differently to the desktop if required.
+
+This is added to the `stepData` object:
+```
+const data = [
+  {
+    step: 0,
+    title: "Welcome to the react-onboarder-tool",
+    description:
+      "This is the first step, you can customize almost everything you can see.",
+    position: {
+      //DESKTOP STYLING
+      top: "10%",
+      left: "10%",
+
+      // MOBILE STYLING
+      mobileTop: "20%", 
+      mobileLeft: "5%" 
+    },
+  },
+]
+```
+

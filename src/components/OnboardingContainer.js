@@ -8,8 +8,8 @@ import Button from "../styles/Button";
 const OnboarderContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center; // Can be altered as an option
-  justify-content: center; // Can be an option later
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s ease-in-out;
   overflow: hidden;
   color: ${(props) => (props.color ? props.color : "#eeeeee")};
@@ -76,13 +76,15 @@ const OnboarderContainer = styled.div`
     }
   }
 
-  /* @media screen and (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     section {
-      width: ${(props) => (props.width ? props.width : "50%")};
+      width: ${(props) => (props.mobileWidth ? props.mobileWidth : "75%")};
       height: ${(props) => (props.height ? props.height : "")};
+      top: ${(props) => (props.mobileTop ? props.mobileTop : "5%")};
+      left: ${(props) => (props.mobileLeft ? props.mobileLeft : "inherit")};
       padding: 2rem;
-      border: ${(props) => (props.border ? props.border : "1px solid #eeeeee")};
       justify-content: flex-start;
+      /* border: ${(props) => (props.border ? props.border : "none")}; */
 
       h2 {
         font-size: 1rem;
@@ -99,7 +101,7 @@ const OnboarderContainer = styled.div`
         padding: 0.5rem;
       }
     }
-  } */
+  }
 `;
 
 const OnboardingContainer = ({
@@ -108,6 +110,7 @@ const OnboardingContainer = ({
   finishOnboarding,
   options,
   earlyExitCallback,
+  mobileOptions,
 }) => {
   const { containerRef } = useOnboarderContainer();
   const [openModal, setOpenModal] = useState(showOnboarding);
@@ -140,9 +143,12 @@ const OnboardingContainer = ({
         <>
           <OnboarderContainer
             ref={containerRef}
-            {...options?.modal}
             top={stepData[stepContext]?.position?.top}
             left={stepData[stepContext]?.position?.left}
+            mobileLeft={mobileOptions?.position?.left}
+            mobileTop={mobileOptions?.position?.top}
+            {...options?.modal}
+            {...mobileOptions}
           >
             <section>
               {options.showEarlyExit && (

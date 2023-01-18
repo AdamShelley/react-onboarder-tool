@@ -1,11 +1,12 @@
 {
   "name": "react-onboarder-tool",
-  "version": "0.3.3",
+  "version": "0.3.5",
   "private": false,
   "main": "index.js",
   "author": "Adam",
   "module": "dist/index.js",
   "files": [ "dist", "README.md" ],
+  "keywords": ["react","onboarding", "react-component", "react-onboarder-tool"],
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.5",
