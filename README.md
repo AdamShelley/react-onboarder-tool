@@ -239,7 +239,11 @@ You can change the CSS of mobile styles by adding the `mobileOptions` prop to th
 
 `<OnboarderProvider mobileOptions={yourMobileOptions}`
 
-
+```
+    const yourMobileOptions = {
+        ...your css
+    }
+```
 
 
 The positioning of the modal can also be positioned differently to the desktop if required.
@@ -262,6 +266,7 @@ const data = [
       mobileLeft: "5%" 
     },
   },
+  //... 
 ]
 ```
 

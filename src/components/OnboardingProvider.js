@@ -1,5 +1,7 @@
 import React, { useState, createContext } from "react";
 import OnboardingContainer from "./OnboardingContainer";
+import { useWindowResize } from "../hooks/useWindowResize";
+import { styleMerger } from "../utils/styleMerger";
 
 export const OnboardContext = createContext();
 
@@ -7,12 +9,19 @@ const OnboardingProvider = ({
   children,
   showOnboarding,
   finishOnboarding,
+  earlyExitCallback,
   onboardingData = [],
   options,
-  earlyExitCallback,
   mobileOptions,
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
+
+  // Check for mobile
+  const windowSize = useWindowResize();
+  const useMobile = windowSize.innerWidth <= 800;
+  const mergedStyles = styleMerger(options, mobileOptions);
+
+  const finalStyling = useMobile ? mergedStyles : options;
 
   return (
     <OnboardContext.Provider value={[currentStep, setCurrentStep]}>
@@ -22,7 +31,7 @@ const OnboardingProvider = ({
         stepData={onboardingData}
         earlyExitCallback={earlyExitCallback}
         finishOnboarding={finishOnboarding}
-        options={options}
+        options={finalStyling}
         mobileOptions={mobileOptions}
       />
     </OnboardContext.Provider>

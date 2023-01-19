@@ -85,21 +85,25 @@ const OnboarderContainer = styled.div`
       padding: 2rem;
       justify-content: flex-start;
       /* border: ${(props) => (props.border ? props.border : "none")}; */
+      top: ${(props) => (props.mobileTop ? props.mobileTop : "30%")};
+      left: ${(props) => (props.mobileLeft ? props.mobileLeft : "inherit")};
 
       h2 {
-        font-size: 1rem;
+        font-size: ${(props) =>
+          props.titleFontSize ? props.titleFontSize : "inherit"};
         padding: 0.5rem 0;
       }
 
       p {
         margin-top: 1rem;
-        font-size: 0.8rem;
+        font-size: ${(props) =>
+          props.descriptionFontSize ? props.descriptionFontSize : "inherit"};
       }
 
-      button {
+      /* button {
         margin-top: 2rem;
         padding: 0.5rem;
-      }
+      } */
     }
   }
 `;
@@ -110,7 +114,6 @@ const OnboardingContainer = ({
   finishOnboarding,
   options,
   earlyExitCallback,
-  mobileOptions,
 }) => {
   const { containerRef } = useOnboarderContainer();
   const [openModal, setOpenModal] = useState(showOnboarding);
@@ -145,10 +148,9 @@ const OnboardingContainer = ({
             ref={containerRef}
             top={stepData[stepContext]?.position?.top}
             left={stepData[stepContext]?.position?.left}
-            mobileLeft={mobileOptions?.position?.left}
-            mobileTop={mobileOptions?.position?.top}
+            mobileTop={stepData[stepContext]?.position?.mobileTop}
+            mobileLeft={stepData[stepContext]?.position?.mobileLeft}
             {...options?.modal}
-            {...mobileOptions}
           >
             <section>
               {options.showEarlyExit && (
