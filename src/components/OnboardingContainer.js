@@ -114,10 +114,10 @@ const OnboardingContainer = ({
   finishOnboarding,
   options,
   earlyExitCallback,
+  EarlyExitComponent,
 }) => {
   const { containerRef } = useOnboarderContainer();
   const [openModal, setOpenModal] = useState(showOnboarding);
-
   const [stepContext, setNextStep] = useContext(OnboardContext);
 
   const nextStep = () => {
@@ -153,11 +153,17 @@ const OnboardingContainer = ({
             {...options?.modal}
           >
             <section>
-              {options.showEarlyExit && (
+              {options.showEarlyExit && !EarlyExitComponent && (
                 <span>
                   <button onClick={exitOnboarding}>
                     {options?.earlyExitText || "Exit Tutorial"}
                   </button>
+                </span>
+              )}
+
+              {options.showEarlyExit && EarlyExitComponent && (
+                <span onClick={exitOnboarding}>
+                  <EarlyExitComponent />
                 </span>
               )}
 

@@ -13,6 +13,7 @@ const OnboardingProvider = ({
   onboardingData = [],
   options,
   mobileOptions,
+  earlyExitComponent,
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -33,6 +34,7 @@ const OnboardingProvider = ({
         finishOnboarding={finishOnboarding}
         options={finalStyling}
         mobileOptions={mobileOptions}
+        EarlyExitComponent={earlyExitComponent}
       />
     </OnboardContext.Provider>
   );
