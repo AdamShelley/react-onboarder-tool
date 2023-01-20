@@ -38,6 +38,14 @@ const OnboarderContainer = styled.div`
     overflow: hidden;
     box-shadow: ${(props) =>
       props.boxShadow ? props.boxShadow : "0 10px 40px #000"};
+    opacity: ${(props) =>
+      props.enableFocusOpacity ? props.focusOpacityStrength : "1"};
+    transition: ${(props) =>
+      props.transition ? props.transition : "all .1s ease"};
+
+    &:hover {
+      opacity: 1;
+    }
 
     span {
       button {
