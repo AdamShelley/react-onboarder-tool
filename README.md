@@ -117,13 +117,35 @@ This is then added to the component:
 If you wish to leave title and/or description empty, provide an empty string ```""```
 
 ### Complete Onboarding - `finishOnboarding (Function)`
-This is an optional function that will run after the onboarding has completed, perhaps to update your backend that the user has completed the onboarding or to reroute to a different page.
+This is an function that will run after the onboarding has completed, perhaps to update your backend that the user has completed the onboarding or to reroute to a different page.
 
 This is provided to the component in the same way as before:
 
 ```
 <OnboardingProvider finishOnboarding={**Function-to-run-when-complete**}> 
 ```
+
+## Optional Props: 
+### Early Exit - `earlyExitCallback (Function)`
+There is an options to add a button to the top of the modal which will allow the user to exit the onboarding early. 
+
+To enable this you have to add the following line to the options object: 
+
+```
+showEarlyExit: true,
+```
+
+The text for this button can be modified in the styles options with:
+
+`earlyExitText: 'your text'`
+
+### Early Exit Component - `earlyExitComponent (Component)`
+
+To enable this, like above you have to also provide the following line to options object:
+
+`showEarlyExit: true,`
+
+You can also pass a component to the Provider with the `earlyExitComponent={your_react_component}` prop. This will replace the button above.
 
 ## Highlighter Wrapper
 The other component that goes hand in hand with the provider is the wrapper. 
@@ -186,6 +208,7 @@ const YOUR_OBJECT = {
         color: "#eee", 
         width: "25%",
         height: "25%",
+        transition: "all .5s ease-in-out",
     }
 }
 ```
@@ -217,6 +240,22 @@ const YOUR_OBJECT = {
   }
 }
 ```
+
+## Non-Focus opacity
+If you want to reduce opacity of the modal while not hovered the following parameters can be added:
+
+```
+const YOUR_OBJECT = {
+    modal: {
+        ...Other styling,
+        enableFocusOpacity: true,
+        focusOpacityStrength: 0.85,
+        
+    }
+}
+```
+
+You will need to add both parameters. First to enable and then set the strength of the opacity when the modal is not being actively hovered over. 
 
 ### Highlighter Wrapper
 
